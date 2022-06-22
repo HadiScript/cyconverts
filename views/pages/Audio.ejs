@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title> CYLS-Docs-Converter </title>
+
+</head>
+
+<body>
+    <%- include('../partials/Header'); %>
+
+        <div class="container mx-auto mt-10">
+            <div class="lg:w-2/3 mx-auto">
+                <div class="flex  w-full bg-gray-100  px-10  mb-4 rounded-lg">
+                    <div class="text-center   w-full">
+                        <h1 class="py-5 title-font text-lg font-medium  mb-3 hover:font-bold italic">
+                            Convert Mp4 video (Youtube) To Audio
+                        </h1>
+                        <p class="leading-relaxed hover:font-bold">
+                            Just Put Video Id Of Youtube & Get the Audio Mp3
+                        </p>
+
+                        <form class="my-5 text-center bg-transparent" method="post" enctype="multipart/form-data">
+                            <div class="text-center w-full py-10">
+                                <input class="w-full p-4 border-2 border-gray-600 rounded-md outline-none "
+                                    placeholder="Video Id" type="text" name="link" id="link">
+                            </div>
+
+
+
+                            <button onclick="sendReq()" id="btn"
+                                class="w-full bg-purple-800 py-3 rounded-md text-white hover:bg-white hover:border-gray-700 border-2 hover:text-gray-900">
+                                Convert Audio & Download
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <%- include('../partials/Body'); %>
+
+            <%- include('../partials/Footer'); %>
+
+
+                <script src="https://cdn.jsdelivr.net/npm/browser-image-converter@0.1.1/dist/index.min.js"></script>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+                <script>
+
+
+                    function sendReq() {
+                        // e.preventDefault();
+
+                        var x = document.getElementById("link").value;
+                        if (x === '' || x === undefined) {
+                            alert("Please Past the link there")
+                        }
+                        else {
+                            console.log('function running')
+                            let loading = document.getElementById('btn').innerHTML = "loading..."
+                            fetch("audio", {
+                                method: "POST",
+
+                                body: JSON.stringify({
+                                    link: x
+                                }),
+
+                                headers: {
+                                    "Content-Type": "application/json"
+                                },
+
+                            })
+                                .then(response => {
+                                    console.log(response)
+
+                                    if (response.status(200)) {
+                                        console.log("am ready to re load")
+                                    }
+                                    document.getElementById('btn').innerHTML = "Convert & Download"
+                                    // location.reload();
+                                })
+                                .catch(err => {
+                                    console.log(err)
+                                })
+
+                        }
+                    }
+
+                    // function myFunction() {
+                    //     var x = document.getElementById("link").value;
+
+                    //     console.log(x)
+                    //     if (x === '' || x === undefined) {
+                    //         alert("Please Past the link there")
+                    //     }
+
+                    //     console.log(x)
+                    //     $.ajax({
+                    //         type: "POST",
+                    //         url: "https://reqbin.com/echo/post/json",
+                    //         data: x,
+                    //         success: function (result) {
+                    //             console.log(result);
+                    //         },
+                    //         dataType: "json"
+                    //     });
+
+                    // }
+                </script>
+
+</body>
+
+</html>

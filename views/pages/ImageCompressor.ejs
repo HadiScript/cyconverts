@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="cycarts – cyconverts, the converter tools" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="icon" href="logo.png" />
+
+    <title> cyconverts | image-compressor </title>
+
+</head>
+
+<body>
+    <%- include('../partials/Header'); %>
+
+        <div class="container mx-auto mt-10">
+            <div class="lg:w-2/3 mx-auto">
+                <div class="flex  w-full bg-gray-100  px-10  mb-4 rounded-lg">
+                    <div class="text-center   w-full">
+                        <h1 class="title-font text-lg font-medium  mb-3 hover:font-bold italic">Compress Your
+                            Images
+                        </h1>
+                        <p class="leading-relaxed hover:font-bold"> Just Put Your Image & Get The small
+                            sized Image
+                        </p>
+                        <form class="my-5 text-center bg-transparent" action="/image-compressor" method="post"
+                            enctype="multipart/form-data">
+                            <div class="text-center w-full py-10">
+                                <input type="file" name="file">
+                            </div>
+                            <button
+                                class="w-full bg-blue-600 py-3 rounded-md text-white hover:bg-white hover:border-gray-700 border-2 hover:text-gray-900">
+                                Compressed & Download
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%- include('../partials/Body'); %>
+
+            <%- include('../partials/Footer'); %>
+
+</body>
+
+</html>

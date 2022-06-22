@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="cycarts – cyconverts, the converter tools" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="icon" href="logo.png" />
+
+    <title> cyconverts | image-converter </title>
+
+</head>
+
+<body>
+    <%- include('../partials/Header'); %>
+
+        <div class="container mx-auto mt-10">
+            <div class="lg:w-2/3 mx-auto">
+                <div class="flex  w-full bg-gray-100  px-10  mb-4 rounded-lg">
+                    <div class="text-center   w-full">
+                        <h1 class="title-font text-lg font-medium  mb-3 hover:font-bold italic">Convert Your
+                            Images
+                        </h1>
+                        <p class="leading-relaxed hover:font-bold"> Just Put Your Image & Get The Converted
+                            Image Into Any Format
+                        </p>
+                        <form class="my-5 text-center bg-transparent" action="/processimage" method="post"
+                            enctype="multipart/form-data">
+                            <div class="text-center w-full py-10">
+                                <input type="file" name="file">
+                                <div class="mt-3">
+                                    <label class="radio-inline"><input class="mx-1" type="radio" name="format"
+                                            value="png" checked />png</label>
+                                    <label class="radio-inline"><input class="mx-1" type="radio" name="format"
+                                            value="jpg" />jpg</label>
+                                    <label class="radio-inline"><input class="mx-1" type="radio" name="format"
+                                            value="webp" />webp</label>
+                                    <!-- <label class="radio-inline"><input class="mx-1" type="radio" name="format"
+                                            value="jpeg" />jpeg</label> -->
+                                    <label class="radio-inline"><input class="mx-1" type="radio" name="format"
+                                            value="svg" />svg</label>
+                                    <label class="radio-inline"><input class="mx-1" type="radio" name="format"
+                                            value="gif" />gif</label>
+
+                                </div>
+                            </div>
+                            <button
+                                class="w-full bg-blue-800 py-3 rounded-md text-white hover:bg-white hover:border-gray-700 border-2 hover:text-gray-900">
+                                Convert & Download
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%- include('../partials/Body'); %>
+
+            <%- include('../partials/Footer'); %>
+
+</body>
+
+</html>
